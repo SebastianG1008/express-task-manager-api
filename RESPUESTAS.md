@@ -191,8 +191,35 @@ El proyecto cumple con todos los requisitos del parcial.
 <img width="353" height="41" alt="image" src="https://github.com/user-attachments/assets/043f0cba-e6ec-4b3a-8873-434c14ddf052" />
 
 
+
+
 * npm run lint:fix
 <img width="391" height="39" alt="image" src="https://github.com/user-attachments/assets/0e2b1695-0c44-46b0-ae49-6e9d3ea5a052" />
+
+
+
+* npm test
+<img width="582" height="417" alt="image" src="https://github.com/user-attachments/assets/6de9a3c4-d6ff-448d-93d1-128b90ba360a" />
+
+
+
+
+* npm run build
+<img width="365" height="58" alt="image" src="https://github.com/user-attachments/assets/5d82f6bb-f4a0-49dd-b502-db9d84cef47b" />
+
+
+
+
+
+* act push -j test
+<img width="796" height="925" alt="image" src="https://github.com/user-attachments/assets/eb8d0038-215d-47f0-ae84-638246c37b13" />
+
+
+
+
+
+* act --list
+<img width="1084" height="75" alt="image" src="https://github.com/user-attachments/assets/642a2073-afb2-4e16-9875-9d1781ae5a86" />
 
 ---
 
