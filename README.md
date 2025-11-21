@@ -1,208 +1,210 @@
-# Express Task Manager API
+# 📘 **Task Manager API — Parcial de Calidad de Software Avanzado**
 
-API REST para gestión de tareas (to-do list) construida con Node.js, Express y TypeScript.
+API desarrollada en **Node.js + TypeScript**, enfocada en aplicar principios de **calidad de software**, incluyendo:
 
-## Características
+* ✔ TypeScript estricto
+* ✔ ESLint con reglas avanzadas
+* ✔ Pruebas unitarias y de integración con Jest + Supertest
+* ✔ Cobertura mínima requerida
+* ✔ CI/CD con GitHub Actions
+* ✔ Ejecución local del pipeline con ACT
+* ✔ Arquitectura modular y mantenible
 
-- **API REST completa** con operaciones CRUD para tareas
-- **Almacenamiento en memoria** con estructura de datos eficiente
-- **TypeScript** para type-safety y mejor experiencia de desarrollo
-- **Tests exhaustivos** con Jest y Supertest (cobertura > 80%)
-- **CI/CD automatizado** con GitHub Actions
-- **Linting estricto** con ESLint y reglas de TypeScript
+---
 
-## Requisitos
+# 🚀 **Tecnologías utilizadas**
 
-- Node.js 18.x o 20.x
-- npm 9.x o superior
+| Componente     | Tecnología                  |
+| -------------- | --------------------------- |
+| Lenguaje       | TypeScript                  |
+| Runtime        | Node.js                     |
+| Linter         | ESLint + @typescript-eslint |
+| Pruebas        | Jest + Supertest            |
+| Build          | TypeScript Compiler (tsc)   |
+| CI/CD          | GitHub Actions              |
+| Pipeline local | ACT CLI                     |
 
-## Instalación
+---
 
-\`\`\`bash
-# Clonar el repositorio
-git clone <repository-url>
-cd express-task-manager-api
+# 📂 **Estructura del proyecto**
 
-# Instalar dependencias
+```
+src/
+ ├── controllers/
+ ├── models/
+ ├── routes/
+ ├── storage/
+ ├── app.ts
+ └── server.ts
+tests/
+ ├── TaskModel.test.ts
+ ├── TaskStorage.test.ts
+ └── app.test.ts
+```
+
+Arquitectura modular y orientada a responsabilidad única.
+
+---
+
+# 🧪 **Scripts disponibles**
+
+### 🔧 **Instalar dependencias**
+
+```bash
 npm install
-\`\`\`
+```
 
-## Scripts disponibles
+### ▶️ **Ejecutar la API**
 
-\`\`\`bash
-# Desarrollo con hot-reload
+```bash
 npm run dev
+```
 
-# Ejecutar tests
-npm test
+### 🧹 **Linter**
 
-# Ejecutar tests en modo watch
-npm run test:watch
-
-# Linting
+```bash
 npm run lint
+```
 
-# Corregir problemas de linting automáticamente
+### 🧹 Auto-fix
+
+```bash
 npm run lint:fix
+```
 
-# Compilar TypeScript a JavaScript
+### 🧪 **Pruebas**
+
+```bash
+npm test
+```
+
+### 📊 **Pruebas con cobertura**
+
+Automático en el CI, pero localmente:
+
+```bash
+npm test -- --coverage
+```
+
+### 🔨 **Build**
+
+```bash
 npm run build
+```
 
-# Ejecutar versión compilada
-npm start
-\`\`\`
+---
 
-## Endpoints de la API
+# 📊 **Cobertura**
 
-### GET /status
-Obtiene el estado del servidor y el conteo de tareas.
+El proyecto supera ampliamente el mínimo requerido (80%) con valores superiores al **95%** en líneas, ramas, funciones y statements.
 
-**Respuesta:**
-\`\`\`json
-{
-  "status": "ok",
-  "message": "Task Manager API is running",
-  "tasksCount": 0
-}
-\`\`\`
+El reporte se genera en:
 
-### GET /tasks
-Obtiene todas las tareas.
+```
+coverage/
+```
 
-**Respuesta:**
-\`\`\`json
-[
-  {
-    "id": 1,
-    "title": "Completar proyecto",
-    "completed": false
-  }
-]
-\`\`\`
+---
 
-### POST /tasks
-Crea una nueva tarea.
+# 🛠️ **CI/CD — GitHub Actions**
 
-**Body:**
-\`\`\`json
-{
-  "title": "Nueva tarea"
-}
-\`\`\`
+El pipeline incluye:
 
-**Respuesta (201):**
-\`\`\`json
-{
-  "id": 1,
-  "title": "Nueva tarea",
-  "completed": false
-}
-\`\`\`
+* Instalación de dependencias
+* ESLint
+* Pruebas unitarias
+* Cobertura
+* Matriz de Node.js (18.x y 20.x)
+* Subida de artifacts (solo en GitHub, no en ACT)
 
-### PATCH /tasks/:id/toggle
-Alterna el estado de completado de una tarea.
+Workflow principal:
 
-**Respuesta:**
-\`\`\`json
-{
-  "id": 1,
-  "title": "Nueva tarea",
-  "completed": true
-}
-\`\`\`
+```
+.github/workflows/ci.yml
+```
 
-### DELETE /tasks/:id
-Elimina una tarea por ID.
+---
 
-**Respuesta:** 204 No Content
+# 🐧 **Ejecución del pipeline con ACT (local)**
 
-## Estructura del proyecto
+### 📌 Listar jobs
 
-\`\`\`
-express-task-manager-api/
-├── src/
-│   ├── models/
-│   │   └── Task.ts          # Modelo y lógica de negocio
-│   ├── storage/
-│   │   └── TaskStorage.ts   # Almacenamiento en memoria
-│   ├── controllers/
-│   │   └── taskController.ts # Controladores de endpoints
-│   ├── routes/
-│   │   └── tasks.ts         # Definición de rutas
-│   ├── app.ts               # Configuración de Express
-│   └── server.ts            # Punto de entrada
-├── tests/
-│   ├── app.test.ts          # Tests de integración
-│   ├── TaskStorage.test.ts  # Tests de almacenamiento
-│   └── TaskModel.test.ts    # Tests de modelo
-├── .github/
-│   └── workflows/
-│       └── ci.yml           # Pipeline de CI/CD
-├── package.json
-├── tsconfig.json
-├── jest.config.js
-├── .eslintrc.js
-└── README.md
-\`\`\`
+```bash
+act --list
+```
 
-## Testing
+### ▶️ Ejecutar el pipeline principal
 
-El proyecto incluye tests unitarios y de integración con cobertura superior al 80%.
+```bash
+act push -j test
+```
 
-\`\`\`bash
-# Ejecutar todos los tests con reporte de cobertura
-npm test
+> Nota: ACT no soporta `actions/upload-artifact`, por lo que este paso **falla de forma esperada**.
+> El resto de pasos deben pasar correctamente.
 
-# Ver reporte de cobertura en el navegador
-open coverage/lcov-report/index.html
-\`\`\`
+---
 
-## CI/CD
+# ✔️ **Calidad aplicada**
 
-El proyecto utiliza GitHub Actions para ejecutar automáticamente:
-- ESLint para validación de código
-- Tests con Jest en Node.js 18.x y 20.x
-- Generación de reportes de cobertura
+### ✔ ESLint estricto
 
-El workflow se ejecuta en:
-- Cada push a las ramas \`main\` o \`develop\`
-- Cada pull request hacia estas ramas
+* no-explicit-any
+* no-unused-vars
+* no-floating-promises
+* no-console (solo warn/error permitidos)
 
-## Validación local de CI/CD
+### ✔ Tipado estricto
 
-Puedes validar el workflow localmente usando \`nektos/act\`:
+Interfaces y modelos bien definidos.
 
-\`\`\`bash
-# Instalar act (macOS)
-brew install act
+### ✔ Pruebas unitarias y de integración
 
-# Ejecutar el workflow localmente
-act push
-\`\`\`
+* Modelos
+* Storage
+* Endpoints API
 
-## Linting
+### ✔ Cobertura >95%
 
-El proyecto usa ESLint con reglas estrictas de TypeScript:
+Validada en local, CI y ACT.
 
-\`\`\`bash
-# Verificar errores de linting
-npm run lint
+---
 
-# Corregir automáticamente problemas
-npm run lint:fix
-\`\`\`
+# 📌 **Endpoints principales**
 
-## Tecnologías utilizadas
+### **POST /tasks**
 
-- **Node.js** - Runtime de JavaScript
-- **Express** - Framework web minimalista
-- **TypeScript** - Superset tipado de JavaScript
-- **Jest** - Framework de testing
-- **Supertest** - Testing de APIs HTTP
-- **ESLint** - Linter y formateador de código
-- **GitHub Actions** - CI/CD automatizado
+Crear una tarea.
 
-## Licencia
+### **GET /tasks**
 
-ISC
-\`\`\`
+Listar todas las tareas.
+
+### **GET /tasks/:id**
+
+Obtener una tarea por ID.
+
+### **PUT /tasks/:id**
+
+Actualizar una tarea.
+
+### **DELETE /tasks/:id**
+
+Eliminar una tarea.
+
+---
+
+# 📎 **Capturas usadas en el parcial**
+
+Debes subirlas en el archivo **RESPUESTAS.md**, no aquí.
+
+---
+
+# 👨‍💻 **Autor**
+
+Proyecto desarrollado para el **Parcial de Calidad de Software Avanzado**.
+
+---
+
+# 📜 **Licencia**
+
+MIT License.
