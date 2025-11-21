@@ -187,7 +187,12 @@ El proyecto cumple con todos los requisitos del parcial.
 
 # 📎 **Imagenes** 
 
+* npm run lint
+<img width="353" height="41" alt="image" src="https://github.com/user-attachments/assets/043f0cba-e6ec-4b3a-8873-434c14ddf052" />
 
+
+* npm run lint:fix
+<img width="391" height="39" alt="image" src="https://github.com/user-attachments/assets/0e2b1695-0c44-46b0-ae49-6e9d3ea5a052" />
 
 ---
 
